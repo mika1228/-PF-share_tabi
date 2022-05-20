@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   }
   
   namespace :admin do
-    resources :categories, only: [:index, :create, :edit, :update, :destroy]
+    patch 'categories/:id' => 'categories#update', as: 'update_category'
+    resources :categories, only: [:index, :create, :edit, :destroy]
   end
   
   

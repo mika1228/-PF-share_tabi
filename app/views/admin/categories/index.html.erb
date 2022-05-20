@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="row mt-5 mb-4">
+    <h4>カテゴリ登録・一覧</h4>
+  </div>
+
+  <div class="row">
+    <%= form_with model: [:admin,@category] do |f| %>
+      <%= f.label :name, "カテゴリ名" %>
+      <%= f.text_field :name, class: "ml-3 mr-3" %>
+      <%= f.submit "新規登録", class: "btn btn-sm btn-success" %>
+    <% end %>
+  </div>
+  
+  <div class="row mt-5">
+    <div class="col-4">
+    
+      <table class="table table-borderless">
+        <thead class="table-info">
+          <tr>
+            <th>カテゴリ</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          <% @categories.each do |category| %>
+          <tr>
+            <th><%= category.name %></th>
+            <th><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-sm btn-success" %>
+            <%= link_to "削除", admin_category_path(category.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>
+  
+</div>
