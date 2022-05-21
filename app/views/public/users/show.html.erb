@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-4 mx-auto mt-5 text-center">
+      <th><%= image_tag @user.get_profile_image(100,100) %></th><br>
+      <th><%= @user.name %></th><br>
+      <th><%= @user.age %>　<%= @user.sex %></th><br>
+      <th><%= @user.introduction %></th>
+
+      <div class="form-group mt-3">
+        <th><%= link_to edit_profile_path, class: "btn btn-outline-secondary btn-sm" do %>
+          <i class="fas fa-user-cog"></i>プロフィール編集
+        <% end %>
+        </th>
+      </div>
+    </div>
+    
+  </div>
+</div>
+    

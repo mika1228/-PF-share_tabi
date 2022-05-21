@@ -3,19 +3,38 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   
-  namespace :admin do
-    patch 'categories/:id' => 'categories#update', as: 'update_category'
-    resources :categories, only: [:index, :create, :edit, :destroy]
-  end
-  
-  
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
   
+  namespace :admin do
+    root to: "homes#top", as: "top"
+    
+    patch 'categories/:id' => 'categories#update', as: 'update_category'
+    resources :categories, only: [:index, :create, :edit, :destroy]
+    
+    resources :users, only: [:index, :show, :edit, :update]
+    
+    resources :post_comments, only: [:index, :destroy]
+    
+    resources :posts, only: [:index, :show]
+  end
+  
   scope module: :public do
     root to: "homes#top"
+    
+    get 'users/mypage' => 'users#show', as: 'mypage'
+    get 'user/profile/edit' => 'users#edit', as: 'edit_profile'
+    patch 'users/:id' => 'users#update', as: 'update_user'
+    get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+    patch 'users/withdraw' => 'users#withdraw', as: 'withdraw_user'
+    put 'users/withdraw' => 'users#withdraw'
+    
+    resources :posts
+    resources :post_comments, only: [:create, :destroy]
+    resources :favorites, only: [:index, :create, :destroy]
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

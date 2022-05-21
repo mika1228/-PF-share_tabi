@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="text-center">
+
+      <div class="mt-5 mb-4">
+        <h5><strong>本当に退会しますか？</strong></h5>
+      </div>
+      
+      <div class="mb-4">
+        <p>
+          退会すると、これまでの投稿が閲覧できなくなります。</br>
+          退会する場合は「退会する」をクリックしてください。
+        </p>
+      </div>
+      
+      <th><%= link_to "退会しない", mypage_path, class: "btn btn-primary btn-sm" %></th>
+      <th><%= link_to "退会する", withdraw_user_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger btn-sm" %></th>
+      
+    </div>
+  </div>
+</div>
