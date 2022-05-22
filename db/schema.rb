@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_21_142711) do
+ActiveRecord::Schema.define(version: 2022_05_22_112707) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,18 +58,33 @@ ActiveRecord::Schema.define(version: 2022_05_21_142711) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.text "co"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "category_id"
     t.integer "user_id"
     t.text "spot_name"
     t.string "post_image"
     t.date "date"
-    t.string "prefecture"
+    t.integer "prefecture"
     t.text "address"
     t.float "latitude"
     t.float "longitude"
     t.text "post_comment"
-    t.boolean "boolean", default: true, null: false
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

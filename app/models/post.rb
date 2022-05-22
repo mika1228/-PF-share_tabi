@@ -2,6 +2,13 @@ class Post < ApplicationRecord
   has_one_attached :post_image
   belongs_to :user
   belongs_to :category
+  has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
+  
   
   enum prefecture: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

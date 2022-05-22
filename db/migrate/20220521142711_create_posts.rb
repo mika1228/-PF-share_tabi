@@ -6,12 +6,12 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.text :spot_name
       t.string :post_image
       t.date :date
-      t.string :prefecture
+      t.integer :prefecture
       t.text :address
       t.float :latitude
       t.float :longitude
       t.text :post_comment
-      t.boolean :boolean, null: false, default: true
+      t.boolean :is_active, null: false, default: true
       
 
       t.timestamps

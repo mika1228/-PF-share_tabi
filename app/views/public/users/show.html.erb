@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-4 mx-auto mt-5 text-center">
+    <div class="col-2 mt-5 text-center">
       <th><%= image_tag @user.get_profile_image(100,100) %></th><br>
       <th><%= @user.name %></th><br>
       <th><%= @user.age %>　<%= @user.sex %></th><br>
@@ -12,6 +12,42 @@
           <i class="fas fa-user-cog"></i>プロフィール編集
         <% end %>
         </th>
+      </div>
+    </div>
+    
+    <div class="col-9 offset-1 mt-5">
+      <table class="table table-borderless border-top border-bottom">
+        <thead class="thead" style="background-color: #FFEEFF;">
+          <tr>
+            <th></th>
+            <th>日付</th>
+            <th>スポット名</th>
+            <th>都道府県</th>
+            <th>カテゴリ</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @posts.each do |post| %>
+          <tr>
+            <th>
+              <%= link_to post_path(post.id) do %>
+                <%= image_tag post.post_image, size: "100x70" %>
+              <% end %>
+            </th>
+            <th><%= post.date.strftime('%Y/%m/%d') %></th>
+            <th><%= post.spot_name %></th>
+            <th><%= post.prefecture %></th>
+            <th><%= post.category.name %></th>
+            <th><%= link_to "編集", edit_post_path(post.id), class: "btn btn-success btn-sm" %></th>
+            <th><%= link_to "削除", post_path(post.id), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に消しますか？" %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="mx-auto">
+        <%= paginate @posts %>
       </div>
     </div>
     
