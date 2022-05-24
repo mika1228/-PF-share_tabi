@@ -15,7 +15,7 @@
       </div>
     </div>
     
-    <div class="col-9 offset-1 mt-5">
+    <div class="col-10 mt-5">
       <table class="table table-borderless border-top border-bottom">
         <thead class="thead" style="background-color: #FFEEFF;">
           <tr>
@@ -24,6 +24,7 @@
             <th>スポット名</th>
             <th>都道府県</th>
             <th>カテゴリ</th>
+            <th>ステータス</th>
             <th colspan="2"></th>
           </tr>
         </thead>
@@ -40,6 +41,13 @@
             <th><%= post.spot_name %></th>
             <th><%= post.prefecture %></th>
             <th><%= post.category.name %></th>
+            <th>
+              <% if post.is_active %>
+                <p class="text-primary">公開中</p>
+              <% else %>
+                <p class="text-secondary">非公開</p>
+              <% end %>
+            </th>
             <th><%= link_to "編集", edit_post_path(post.id), class: "btn btn-success btn-sm" %></th>
             <th><%= link_to "削除", post_path(post.id), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に消しますか？" %></th>
           </tr>

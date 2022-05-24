@@ -13,8 +13,9 @@ Rails.application.routes.draw do
 
     patch 'categories/:id' => 'categories#update', as: 'update_category'
     resources :categories, only: [:index, :create, :edit, :destroy]
-
-    resources :users, only: [:index, :show, :edit, :update]
+    
+    patch 'users/:id' => 'users#update', as: 'update_user'
+    resources :users, only: [:index, :show, :edit]
 
     resources :post_comments, only: [:index, :destroy]
 

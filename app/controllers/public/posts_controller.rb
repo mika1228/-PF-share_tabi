@@ -18,6 +18,7 @@ class Public::PostsController < ApplicationController
   
   def index
     @posts = params[:category_id].present? ? Category.find(params[:category_id]).posts : Post.all
+    @posts = Post.order(created_at: :desc)
   end
   
   def show
