@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    
+
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <div class="container">
@@ -21,7 +21,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-    
+
             <% if admin_signed_in? %>
               <li class="nav-item mr-4">
                 <%= link_to admin_users_path, class: 'nav-link text-dark border rounded p-2' do %>
@@ -48,44 +48,44 @@
                 <i class="fas fa-sign-out-alt"></i>ログアウト
                 <% end %>
               </li>
-    
+
              <% elsif user_signed_in? %>
                <li class="nav-item mr-4">
                 <%= link_to posts_path, class: 'nav-link text-dark border rounded p-2' do %>
-                <i class="fas fa-crown"></i>トップページ
+                <i class="fas fa-crown" style="color: #FFCC00;"></i>トップページ
                 <% end %>
               </li>
                <li class="nav-item mr-4">
                 <%= link_to mypage_path, class: 'nav-link text-dark border rounded p-2' do %>
-                <i class="fas fa-user"></i>マイページ
+                <i class="fas fa-user" style="color: #FFAD90;"></i>マイページ
                 <% end %>
               </li>
               <li class="nav-item mr-4">
                 <%= link_to favorites_path, class: 'nav-link text-dark border rounded p-2' do %>
-                <i class="fas fa-heart"></i>いいね
+                <i class="fas fa-heart" style="color: #FF0461;"></i>いいね
                 <% end %>
               </li>
               <li class="nav-item mr-4">
                 <%= link_to new_post_path, class: 'nav-link text-dark border rounded p-2' do %>
-                <i class="fas fa-plus-circle"></i>新規投稿
+                <i class="fas fa-plus-circle" style="color: #32CD32;"></i>新規投稿
                 <% end %>
               </li>
               <li class="nav-item mr-4">
                 <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark border rounded p-2' do %>
-                <i class="fas fa-sign-out-alt"></i>ログアウト
+                <i class="fas fa-sign-out-alt" style="color: #444444;"></i>ログアウト
                 <% end %>
               </li>
 
             <% else %>
-      
+
             <% end %>
-    
+
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    
+
     <%= yield %>
   </body>
 </html>
