@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw_user'
     put 'users/withdraw' => 'users#withdraw'
 
+    get 'search' => 'posts#search'
     patch 'posts/:id' => 'posts#update', as: 'update_post'
     resources :posts do
       resources :post_comments, only: [:create, :destroy]

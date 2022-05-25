@@ -7,6 +7,13 @@
           { prompt: '--カテゴリで絞り込み検索--', onchange: 'submit(this.form);'} %>
       <% end %>
     </div>
+    
+    <div class="search-form mt-4 ml-5">
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :keyword, value: @keyword %>
+        <%= f.submit 'Search' %>
+      <% end %>
+    </div>
   </div>
 
   <div class="row">

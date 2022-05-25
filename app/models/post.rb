@@ -9,6 +9,10 @@ class Post < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
   
+  def self.search(keyword)
+    where(["spot_name like? OR prefecture like? OR address like? OR post_comment like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+  end
+  
   
   enum prefecture: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
