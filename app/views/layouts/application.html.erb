@@ -24,7 +24,7 @@
 
             <% if admin_signed_in? %>
               <li class="nav-item mr-4">
-                <%= link_to admin_users_path, class: 'nav-link text-dark border rounded p-2' do %>
+                <%= link_to admin_root_path, class: 'nav-link text-dark border rounded p-2' do %>
                 <i class="fas fa-users"></i>会員一覧
                 <% end %>
               </li>
@@ -40,7 +40,7 @@
               </li>
               <li class="nav-item mr-4">
                 <%= link_to admin_categories_path, class: 'nav-link text-dark border rounded p-2' do %>
-                <i class="fas fa-clover"></i>カテゴリ
+                <i class="fas fa-suitcase-rolling"></i>カテゴリ
                 <% end %>
               </li>
               <li class="nav-item mr-4">

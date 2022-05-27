@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    root to: "homes#top", as: "top"
+    root to: "homes#top"
 
     patch 'categories/:id' => 'categories#update', as: 'update_category'
     resources :categories, only: [:index, :create, :edit, :destroy]
     
     patch 'users/:id' => 'users#update', as: 'update_user'
-    resources :users, only: [:index, :show, :edit]
+    resources :users, only: [:show, :edit]
 
     resources :post_comments, only: [:index, :destroy]
 
