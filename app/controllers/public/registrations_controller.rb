@@ -4,6 +4,13 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :check_guest, only: %i[update destroy]
+  
+  def check_guest
+    if resource.email == "guest@example.com"
+     redirect_to posts_path, alert: "ゲストユーザーの変更・削除はできません。"
+    end
+  end
   
   def after_sign_in_path_for(resource)
     mypage_path
@@ -12,6 +19,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     mypage_path
   end
+  
   # GET /resource/sign_up
   # def new
   #   super

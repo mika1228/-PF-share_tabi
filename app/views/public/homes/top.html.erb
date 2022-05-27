@@ -3,25 +3,33 @@
     <div class="mx-auto mt-5 text-center">
 
       <h2><i class="fas fa-star" style="color: #FFD700;"></i>ようこそ、シェア旅へ<i class="fas fa-star" style="color: #FFD700;"></i></i></h2>
-      
+
       <p></p>
       <p>旅先での<strong>お気に入り</strong>を投稿するコミュニティサイトです。</p>
       <p>ご自身の旅の記録として、これからの旅行プランの参考として、など</p>
       <p>様々な場面でご活用いただけます。</p>
       <p>お気に入りのスポットをみんなとシェアしてみませんか？</p>
       <p></p>
-      
+
       <h5>Have a nice trip <i class="far fa-heart" style="color: #FF6699;"></i></h5>
       <h5>Let's go <i class="fas fa-exclamation" style="color: #FF1A6F	"></i><i class="fas fa-exclamation" style="color: #FF1A6F	"></i></h5>
-      
+
     </div>
   </div>
-  
+
   <div class="row">
     <div class="mx-auto mt-4 text-center">
       <button type="button" class="btn btn-success btn-sm"><%= link_to "新規登録", new_user_registration_path, class: 'text-light' %></button>
       　　　　　<button type="button" class="btn btn-primary btn-sm"><%= link_to "ログイン", new_user_session_path, class: 'text-light' %></button>
       </div>
+    </div>
+  </div>
+
+  <div class ="row mt-4">
+    <div class ="mx-auto">
+      <button type="button" class="btn btn-light btn-sm">
+        <%= link_to "ゲストログイン", guests_guest_sign_in_path, method: :post, class: "link text-dark" %>
+     </button>
     </div>
   </div>
 

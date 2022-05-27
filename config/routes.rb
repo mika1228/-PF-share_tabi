@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: "homes#top"
+    
+    post 'guests/guest_sign_in' => 'guests#new_guest'
 
     get 'users/mypage' => 'users#show', as: 'mypage'
     get 'user/profile/edit' => 'users#edit', as: 'edit_profile'
@@ -41,7 +43,6 @@ Rails.application.routes.draw do
     
     resources :favorites, only: [:index]
     
-
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
