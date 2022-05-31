@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:index, :destroy]
 
     resources :posts, only: [:index, :show]
+    
   end
 
   scope module: :public do
