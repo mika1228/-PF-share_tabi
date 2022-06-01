@@ -1,0 +1,26 @@
+<% posts.each do |post| %>
+  <% if post.is_active == true %>
+  <div class="col-lg-4 col-md-8 mb-3">
+    <%= link_to post_path(post.id), class: "card-body text-dark" do %>
+      <div class="card mt-4 shadow-lg h-80" style="width: 18rem; card-height: 100%;">
+        <svg class="card-img-top" width="100%" height="0">
+          <%= image_tag post.post_image %>
+        </svg>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-3">
+              <th><%= image_tag post.user.get_profile_image(50,50) %></th><br>
+              <th><%= post.user.name %></th>
+            </div>
+            <div class="col-9">
+              <th><%= post.spot_name %></th><br>
+              <th><%= post.prefecture %>　<%= post.category.name %></th><br>
+              <th><%= post.date.strftime('%Y/%m/%d') %></th>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+<% end %>

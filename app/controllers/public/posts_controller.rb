@@ -17,7 +17,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-      @posts = params[:category_id].present? ? Category.find(params[:category_id]).posts : Post.all.order(created_at: :desc)
+      @posts = params[:category_id].present? ? Category.find(params[:category_id]).posts.order(created_at: :desc) : Post.all.order(created_at: :desc)
   end
 
   def show
@@ -32,7 +32,7 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[:notice] = "You have updated post successfully."
+      flash[:notice] = "投稿が編集されました"
       redirect_to post_path(@post.id)
     else
       render :edit
@@ -46,7 +46,7 @@ class Public::PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:keyword])
+    @posts = Post.search(params[:keyword]).order(created_at: :desc)
     @keyword = params[:keyword]
     render "index"
   end
