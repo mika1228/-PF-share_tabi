@@ -3,24 +3,24 @@
   <div class="row mt-5 mb-4">
     <h4><%= @user.name %>さんの会員情報詳細</h4>
   </div>
-  
+
   <div class="row">
-    
+
     <div class="col-4">
       <div class="form-group row">
         <label class="col-5"><%= image_tag @user.get_profile_image(100,100) %></label>
       </div>
-    
+
       <div class="form-group row">
-        <label class="col-5">会員ID</label>
+        <label class="col-5">会員ID</mdbel>
         <div class="col-5"><%= @user.id %></div>
       </div>
-    
+
       <div class="form-group row">
         <label class="col-5">名前</label>
         <div class="col-5"><%= @user.name %></div>
       </div>
-    
+
       <div class="form-group row">
         <label class="col-5">メールアドレス</label>
         <div class="col-5"><%= @user.email %></div>
@@ -36,15 +36,15 @@
           <% end %>
         </div>
       </div>
-    
+
       <div class="form-group row">
         <div class="mx-auto">
           <%= link_to "編集する", edit_admin_user_path(@user.id), class: "btn btn-success btn-sm" %>
-        </div> 
+        </div>
       </div>
-        
+
     </div>
-  
+
     <div class="col-8">
       <table class="table table-borderless border-top border-bottom">
         <thead class="thead" style="background-color: #FFFACD;">
@@ -57,7 +57,7 @@
             <th></th>
           </tr>
         </thead>
-        
+
         <tbody>
           <% @posts.each do |post| %>
           <tr>
@@ -80,8 +80,7 @@
       </div>
     </div>
      </div>
-  
+
     </din>
   </div>
-  
-  
+

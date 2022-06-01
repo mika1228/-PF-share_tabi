@@ -1,6 +1,6 @@
 <% posts.each do |post| %>
   <% if post.is_active == true %>
-  <div class="col-lg-4 col-md-8 mb-3">
+  <div class="col-lg-4 col-md-6 mb-3">
     <%= link_to post_path(post.id), class: "card-body text-dark" do %>
       <div class="card mt-4 shadow-lg h-80" style="width: 18rem; card-height: 100%;">
         <svg class="card-img-top" width="100%" height="0">

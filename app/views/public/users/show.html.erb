@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-2 mt-5 text-center">
+    <div class="col-lg-2 mt-5 text-center">
       <th><%= image_tag @user.get_profile_image(100,100) %></th><br>
       <th><%= @user.name %></th><br>
       <th><%= @user.age %>　<%= @user.sex %></th><br>
@@ -15,7 +15,7 @@
       </div>
     </div>
     
-    <div class="col-10 mt-5">
+    <div class="col-lg-10 mt-5">
       <table class="table table-borderless border-top border-bottom">
         <thead class="thead" style="background-color: #FFEEFF;">
           <tr>
@@ -34,7 +34,7 @@
           <tr>
             <th>
               <%= link_to post_path(post.id) do %>
-                <%= image_tag post.post_image, size: "100x70" %>
+                <%= image_tag post.post_image, size: "80x50" %>
               <% end %>
             </th>
             <th><%= post.date.strftime('%Y/%m/%d') %></th>

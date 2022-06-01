@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @post = Post.new
@@ -8,7 +9,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      flash[:notice] = "You have created post successfully."
+      flash[:notice] = "投稿されました"
       redirect_to post_path(@post.id)
     else
       @posts = Post.all
@@ -17,7 +18,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-      @posts = params[:category_id].present? ? Category.find(params[:category_id]).posts.order(created_at: :desc) : Post.all.order(created_at: :desc)
+      @posts = params[:category_id].present? ? Category.find(params[:category_id]).posts.page(params[:page]).per(12).order(created_at: :desc) : Post.page(params[:page]).per(12).order(created_at: :desc)
   end
 
   def show
