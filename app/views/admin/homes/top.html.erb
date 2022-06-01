@@ -1,43 +1,40 @@
 <div class="container">
 
   <div class="row mt-5 mb-4">
-    <h4>ユーザ一覧</h4>
+    <h4>会員一覧</h4>
   </div>
   
   <div class="row justify-content-center">
-    <div class="col-10">
-
-      <table class="table table-borderless border-top border-bottom">
-        <thead class="thead" style="background-color: #FFFACD;">
-          <tr>
-            <th>会員ID</th>
-            <th>氏名</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
-          </tr>
-        </thead>
+    <table class="table table-borderless border-top border-bottom">
+      <thead class="thead" style="background-color: #FFFACD;">
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
         
-        <tbody>
-          <% @users.each do |user| %>
-          <tr>
-            <th><%= user.id %></th>
-            <th><%= link_to user.name, admin_user_path(user.id) %></th>
-            <th><%= user.email %></th>
-            <th>
-              <% if user.is_active %>
-                <p class="text-success">有効</p>
-              <% else %>
-                <p class="text-secondary">退会</p>
-              <% end %>
-            </th>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="mx-auto">
-        <%= paginate @users %>
-      </div>
-    
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <th><%= user.id %></th>
+          <th><%= link_to user.name, admin_user_path(user.id) %></th>
+          <th><%= user.email %></th>
+          <th>
+            <% if user.is_active %>
+              <p class="text-success">有効</p>
+            <% else %>
+              <p class="text-secondary">退会</p>
+            <% end %>
+          </th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+      
+    <div class="mx-auto">
+      <%= paginate @users %>
     </div>
   </div>
   

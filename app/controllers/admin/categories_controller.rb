@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @categories = Category.all
@@ -22,7 +23,7 @@ class Admin::CategoriesController < ApplicationController
   def update
     @categories = Category.find(params[:id])
     if @category.update(category_params)
-      flash[:notice] = "You have updated category successfully."
+      flash[:notice] = "カテゴリが編集されました"
       redirect_to admin_categories_path
     else
       render :edit
