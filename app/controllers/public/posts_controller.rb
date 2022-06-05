@@ -47,7 +47,7 @@ class Public::PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:keyword]).order(created_at: :desc)
+    @posts = Post.search(params[:keyword]).order(created_at: :desc).page(params[:page]).per(12)
     @keyword = params[:keyword]
     render "index"
   end
