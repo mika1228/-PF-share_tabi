@@ -1,12 +1,12 @@
 <div class="container">
 
   <div class="row mt-5 mb-4">
-    <h4>カテゴリ登録・一覧</h4>
+    <h4>カテゴリー登録・一覧</h4>
   </div>
 
   <div class="row">
     <%= form_with model: [:admin,@category] do |f| %>
-      <%= f.label :name, "カテゴリ名" %>
+      <%= f.label :name, "カテゴリー名" %>
       <%= f.text_field :name, class: "ml-3 mr-3" %>
       <%= f.submit "新規登録", class: "btn btn-sm btn-success" %>
     <% end %>
@@ -17,7 +17,7 @@
       <table class="table table-borderless border-top border-bottom">
         <thead class="thead" style="background-color: #FFFACD;">
           <tr>
-            <th>カテゴリ</th>
+            <th>カテゴリー</th>
             <th colspan="2"></th>
           </tr>
         </thead>

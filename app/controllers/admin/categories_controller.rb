@@ -21,9 +21,9 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def update
-    @categories = Category.find(params[:id])
+    @category = Category.find(params[:id])
     if @category.update(category_params)
-      flash[:notice] = "カテゴリが編集されました"
+      flash[:notice] = "カテゴリーが編集されました"
       redirect_to admin_categories_path
     else
       render :edit
