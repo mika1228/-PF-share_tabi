@@ -20,10 +20,4 @@ class Admin::UsersController < ApplicationController
     end
   end
   
-  def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to admin_user_path(@user.id)
-  end
-  
 end

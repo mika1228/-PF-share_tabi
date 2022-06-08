@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
     resources :post_comments, only: [:index, :destroy]
 
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show, :destroy]
     
   end
 

@@ -9,4 +9,11 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
   end
+  
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to admin_user_path(@post.user.id)
+  end
+  
 end

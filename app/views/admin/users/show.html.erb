@@ -60,6 +60,7 @@
 
         <tbody>
           <% @posts.each do |post| %>
+          <% if post.is_active == true %>
           <tr>
             <th>
               <%= link_to admin_post_path(post.id) do %>
@@ -72,6 +73,7 @@
             <th><%= post.category.name %></th>
             <th><%= link_to "削除", admin_post_path(post.id), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に消しますか？" %></th>
           </tr>
+          <% end %>
           <% end %>
         </tbody>
       </table>
