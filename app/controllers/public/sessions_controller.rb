@@ -36,9 +36,10 @@ class Public::SessionsController < Devise::SessionsController
   
   def user_state
     @user = User.find_by(email: params[:user][:email])
-    return if !@user
-    if @user.valid_password?(params[:user][:password]) && !true
-      redirect_to new_user_registration_path
+    if @user
+      if @user.valid_password?(params[:user][:password]) && !@user.is_active
+        redirect_to new_user_registration_path
+      end
     end
   end
 end

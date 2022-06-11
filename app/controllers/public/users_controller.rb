@@ -21,11 +21,12 @@ class Public::UsersController < ApplicationController
   end
 
   def withdraw
+    @user = current_user
     @user.update(is_active: false)
     reset_session
     redirect_to root_path
   end
-  
+
   def favorites
     @user = User.find(params[:id])
     @favorites= Favorite.where(user_id: @user.id).pluck(:post_id)

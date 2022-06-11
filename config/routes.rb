@@ -30,10 +30,9 @@ Rails.application.routes.draw do
 
     get 'users/mypage' => 'users#show', as: 'mypage'
     get 'user/profile/edit' => 'users#edit', as: 'edit_profile'
+    patch 'users/withdraw' => 'users#withdraw', as: 'withdraw_user'
     patch 'users/:id' => 'users#update', as: 'update_user'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
-    patch 'users/withdraw' => 'users#withdraw', as: 'withdraw_user'
-    put 'users/withdraw' => 'users#withdraw'
 
     get 'search' => 'posts#search'
     patch 'posts/:id' => 'posts#update', as: 'update_post'
