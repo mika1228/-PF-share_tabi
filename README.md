@@ -22,7 +22,9 @@ https://drive.google.com/file/d/1gNJsYoeW2u80dq1CELlp36z5xD6jynoE/view?usp=shari
 <テーブル定義書>  
 https://docs.google.com/spreadsheets/d/1t6u_Vw519l9yAdtfuQOfzzl7aV9R-H6le9hU0562v-8/edit?usp=sharing  
 <詳細設計書>  
-https://docs.google.com/spreadsheets/d/1aLguWcJKeu6GrNvB6ubNJ6RPIWGfjpwu/edit?usp=sharing&ouid=104338971665303818979&rtpof=true&sd=true
+https://docs.google.com/spreadsheets/d/1aLguWcJKeu6GrNvB6ubNJ6RPIWGfjpwu/edit?usp=sharing&ouid=104338971665303818979&rtpof=true&sd=true  
+<テスト仕様書>  
+https://docs.google.com/spreadsheets/d/1zhgQGKzrDB6JdUDAcRMWiPSN9i-ErL-o/edit?usp=sharing&ouid=104338971665303818979&rtpof=true&sd=true
     
 ## 開発環境
 - OS：Linux(CentOS)
@@ -30,7 +32,3 @@ https://docs.google.com/spreadsheets/d/1aLguWcJKeu6GrNvB6ubNJ6RPIWGfjpwu/edit?us
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
